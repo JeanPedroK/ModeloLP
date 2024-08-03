@@ -304,7 +304,7 @@ a:hover {
 /**********************/
 /*     Navigation     */
 /**********************/
-.navbar {
+/* .navbar {
 	background-color: #fcfafb;
 	font-weight: 600;
 	font-size: 0.875rem;
@@ -332,7 +332,7 @@ a:hover {
 
 .offcanvas-collapse {
 	position: fixed;
-	top: 3.25rem; /* adjusts the height between the top of the page and the offcanvas menu */
+	top: 3.25rem; 
 	bottom: 0;
 	left: 100%;
 	width: 100%;
@@ -371,9 +371,8 @@ a:hover {
 	color: #0092ff;
 }
 
-/* Dropdown Menu */
 .navbar .dropdown .dropdown-menu {
-	animation: fadeDropdown 0.2s; /* required for the fade animation */
+	animation: fadeDropdown 0.2s;
 }
 
 @keyframes fadeDropdown {
@@ -415,13 +414,12 @@ a:hover {
 	border: none;
 	background-color: #d1d1d1;
 }
-/* end of dropdown menu */
 
 .navbar .navbar-toggler {
 	padding: 0;
 	border: none;
 	font-size: 1.25rem;
-}
+} */
 
 
 /********************/

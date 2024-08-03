@@ -20,13 +20,14 @@
                         <a class="nav-link" href="#features">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Prices">Pacotes</a>
+                        <a class="nav-link" href="#prices">Pacotes</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
-                            aria-expanded="false">Sobre</a>
+                            aria-expanded="false" @click="toggleDropdown" @mouseover="handleMouseOver">Sobre</a>
 
-                        <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                        <ul class="dropdown-menu" aria-labelledby="dropdown01" :class="{ show: isOpen }"
+                            @mouseleave="handleMouseLeave">
                             <li><a class="dropdown-item" href="#">Artigos</a></li>
                             <li>
                                 <div class="dropdown-divider"></div>
@@ -51,10 +52,25 @@ export default {
     data() {
         return {
             toggleMenu: false,
+            isOpen: false,
+            timeout: null
         }
     },
     methods: {
-
+        toggleDropdown(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            this.isOpen = !this.isOpen;
+        },
+        handleMouseOver() {
+            if (this.timeout) clearTimeout(this.timeout);
+            this.isOpen = true;
+        },
+        handleMouseLeave() {
+            this.timeout = setTimeout(() => {
+                this.isOpen = false;
+            }, 200); // Delay to allow click events to register
+        }
     }
 }
 

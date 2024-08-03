@@ -10,96 +10,94 @@
             </div>
             <div class="row">
                 <div class="col-xl-5">
-                    <div class="accordion" id="accordionExample">
-
-
-                        <div class="accordion-item">
-                            <div class="accordion-icon">
-                                <span class="fas fa-tv"></span>
-                            </div>
-                            <div class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Planejamento
-                                </button>
-                            </div>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">Mauris ornare libero et pharetra hendrerit. Cura elementum
-                                    lectus quis tellus pretium, vitae lobortis dui sagittis aliquam et enim vel semon
-                                    anticus</div>
-                            </div>
+                    <div v-for="(item, index) in items" :key="index" class="accordion-item">
+                        <div class="accordion-icon" :class="item.iconColor">
+                            <span :class="item.iconClass"></span>
                         </div>
-
-
-                        <div class="accordion-item">
-                            <div class="accordion-icon blue">
-                                <span class="fas fa-microphone"></span>
-                            </div>
-                            <div class="accordion-header" id="headingTwo">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Oportunidades
-                                </button>
-                            </div>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">Mauris ornare libero et pharetra hendrerit. Cura elementum
-                                    lectus quis tellus pretium, vitae lobortis dui sagittis aliquam et enim vel semon
-                                    anticus</div>
-                            </div>
+                        <div class="accordion-header" :id="'heading' + index">
+                            <button class="accordion-button" type="button" @click="userToggle(index)"
+                                :aria-expanded="activeIndex === index" :aria-controls="'collapse' + index">
+                                {{ item.title }}
+                            </button>
                         </div>
-
-
-                        <div class="accordion-item">
-                            <div class="accordion-icon purple">
-                                <span class="fas fa-video"></span>
+                        <transition name="accordion">
+                            <div :id="'collapse' + index" class="accordion-collapse collapse"
+                                :class="{ show: activeIndex === index }" :aria-labelledby="'heading' + index">
+                                <div class="accordion-body">
+                                    {{ item.content }}
+                                </div>
                             </div>
-                            <div class="accordion-header" id="headingThree">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Campanha
-                                </button>
-                            </div>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">Mauris ornare libero et pharetra hendrerit. Cura elementum
-                                    lectus quis tellus pretium, vitae lobortis dui sagittis aliquam et enim vel semon
-                                    anticus</div>
-                            </div>
-                        </div>
-
-
-                        <div class="accordion-item">
-                            <div class="accordion-icon orange">
-                                <span class="fas fa-tools"></span>
-                            </div>
-                            <div class="accordion-header" id="headingFour">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    Ajustes
-                                </button>
-                            </div>
-                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">Mauris ornare libero et pharetra hendrerit. Cura elementum
-                                    lectus quis tellus pretium, vitae lobortis dui sagittis aliquam et enim vel semon
-                                    anticus</div>
-                            </div>
-                        </div>
-
+                        </transition>
                     </div>
+                   
                 </div>
                 <div class="col-xl-7 d-flex flex-row-reverse">
-                    <div class="image-container">
-                        <img class="img-fluid" src="/assets/images/features-dashboard.png" alt="alternative" />
+                    <div class="image-container" id="imgBox" @mousemove="handleMouseMove"
+                        @mouseleave="handleMouseLeave">
+                        <img class="responsive-img" src="/assets/images/features-dashboard.png" ref="img"
+                            alt="alternative" />
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            activeIndex: 0,
+            intervalId: null,
+            pauseDuration: 5000,
+            items: [
+                { title: 'Planejamento', iconClass: 'fas fa-tv', iconColor: '', content: 'Mauris ornare libero et pharetra hendrerit. Cura elementum lectus quis tellus pretium, vitae lobortis dui sagittis aliquam et enim vel semon anticus' },
+                { title: 'Oportunidades', iconClass: 'fas fa-microphone', iconColor: 'blue', content: 'Mauris ornare libero et pharetra hendrerit. Cura elementum lectus quis tellus pretium, vitae lobortis dui sagittis aliquam et enim vel semon anticus' },
+                { title: 'Campanha', iconClass: 'fas fa-video', iconColor: 'purple', content: 'Mauris ornare libero et pharetra hendrerit. Cura elementum lectus quis tellus pretium, vitae lobortis dui sagittis aliquam et enim vel semon anticus' },
+                { title: 'Ajustes', iconClass: 'fas fa-tools', iconColor: 'orange', content: 'Mauris ornare libero et pharetra hendrerit. Cura elementum lectus quis tellus pretium, vitae lobortis dui sagittis aliquam et enim vel semon anticus' }
+            ]
+        };
+    },
+    methods: {
+        handleMouseMove(event) {
+            const box = event.currentTarget;
+            const img = this.$refs.img;
+
+            const rect = box.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            img.style.transformOrigin = `${x}px ${y}px`;
+            img.style.transform = 'scale(1.5)';
+        },
+        handleMouseLeave() {
+            const img = this.$refs.img;
+            img.style.transformOrigin = 'center center';
+            img.style.transform = 'scale(1)';
+        },
+
+        toggle(index) {
+            this.activeIndex = this.activeIndex === index ? null : index;
+        },
+        autoToggle() {
+            this.intervalId = setInterval(() => {
+                this.activeIndex = (this.activeIndex + 1) % this.items.length;
+            }, 3000); 
+        },
+        userToggle(index) {
+            clearInterval(this.intervalId); 
+            this.toggle(index); 
+            setTimeout(() => {
+                this.autoToggle();
+            }, this.pauseDuration); 
+        }
+    },
+    mounted() {
+        this.autoToggle();
+    }
+};
+</script>
 
 <style scoped lang="scss">
 .container {
@@ -113,12 +111,11 @@
 
 .image-container {
     overflow: hidden;
-    transition: all 0.4s;
+    position: relative;
+}
 
-    & img:hover {
-        transform: scale(1.15);
-        transition: all 0.4s;
-    }
+.responsive-img {
+    transition: transform 0.3s ease;
 }
 
 .accordion-1 {
@@ -130,7 +127,6 @@
 
 .accordion-1 .h2-heading {
     margin-bottom: 1rem;
-    // color: #ffffff;
     text-align: center;
     padding-top: 6px;
     font-weight: 600px;
@@ -138,7 +134,6 @@
 
 .accordion-1 .p-heading {
     margin-bottom: 4rem;
-    // color: #ffffff;
     text-align: center;
 }
 
@@ -179,7 +174,6 @@
 }
 
 .accordion-1 .accordion-icon .fas {
-    // color: #ffffff;
     font-size: 1.25rem;
     line-height: 44px;
 }
@@ -195,7 +189,6 @@
     padding: 0;
     border: none;
     background-color: transparent;
-    // color: #ffffff;
     box-shadow: none;
     font-weight: 700;
     font-size: 1.25rem;
@@ -211,6 +204,13 @@
 .accordion-1 .accordion-body {
     margin-left: 4.125rem;
     padding: 0.375rem 0 0 0;
-    // color: #ffffff;
+}
+
+.accordion-enter-active, .accordion-leave-active {
+    transition: all 3s ease;
+}
+.accordion-enter, .accordion-leave-to {
+    max-height: 0;
+    opacity: 0;
 }
 </style>
