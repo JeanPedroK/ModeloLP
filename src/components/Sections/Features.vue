@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <h2 class="h2-heading">Online service features</h2>
+                    <h2 class="h2-heading">Features</h2>
                     <p class="p-heading">Suspendisse vitae enim arcu. Aliquam convallis risus a felis blandit, at mollis
                         nisi bibendum. Aliquam nec purus at ex blandit posuere nec a odio. Proin lacinia dolor justo</p>
                 </div>
@@ -20,7 +20,7 @@
                                 {{ item.title }}
                             </button>
                         </div>
-                        <transition name="accordion">
+                        <transition name="fade">
                             <div :id="'collapse' + index" class="accordion-collapse collapse"
                                 :class="{ show: activeIndex === index }" :aria-labelledby="'heading' + index">
                                 <div class="accordion-body">
@@ -29,7 +29,6 @@
                             </div>
                         </transition>
                     </div>
-                   
                 </div>
                 <div class="col-xl-7 d-flex flex-row-reverse">
                     <div class="image-container" id="imgBox" @mousemove="handleMouseMove"
@@ -60,6 +59,7 @@ export default {
         };
     },
     methods: {
+        // img zoom
         handleMouseMove(event) {
             const box = event.currentTarget;
             const img = this.$refs.img;
@@ -77,20 +77,21 @@ export default {
             img.style.transform = 'scale(1)';
         },
 
+        // accordions
         toggle(index) {
             this.activeIndex = this.activeIndex === index ? null : index;
         },
         autoToggle() {
             this.intervalId = setInterval(() => {
                 this.activeIndex = (this.activeIndex + 1) % this.items.length;
-            }, 3000); 
+            }, 3000);
         },
         userToggle(index) {
-            clearInterval(this.intervalId); 
-            this.toggle(index); 
+            clearInterval(this.intervalId);
+            this.toggle(index);
             setTimeout(() => {
                 this.autoToggle();
-            }, this.pauseDuration); 
+            }, this.pauseDuration);
         }
     },
     mounted() {
@@ -119,98 +120,100 @@ export default {
 }
 
 .accordion-1 {
-    padding-top: 9.25rem;
-    padding-bottom: 9.75rem;
+    padding-top: 12.25rem;
+    padding-bottom: 12.75rem;
     background: url('/assets/images/features_backgroud.jpg') center center no-repeat;
     background-size: cover;
+
+    & .h2-heading {
+        margin-bottom: 1rem;
+        text-align: center;
+        padding-top: 6px;
+        font-weight: 600px;
+    }
+
+    & .p-heading {
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+
+    & .accordion {
+        margin-bottom: 5rem;
+    }
+
+    & .accordion-item {
+        margin-bottom: 2.5rem;
+        border: none;
+        border-radius: 0;
+        background-color: transparent;
+    }
+
+    & .accordion-item:last-of-type {
+        margin-bottom: 0;
+    }
+
+    & .accordion-icon {
+        position: absolute;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        text-align: center;
+        background-color: #14be9f;
+    }
+
+    & .accordion-icon.blue {
+        background-color: #1d79fb;
+    }
+
+    & .accordion-icon.purple {
+        background-color: #dc63ff;
+    }
+
+    & .accordion-icon.orange {
+        background-color: #ff6c02;
+    }
+
+    & .accordion-icon .fas {
+        color: #ffffff;
+        font-size: 1.25rem;
+        line-height: 44px;
+    }
+
+    & .accordion-header {
+        margin-left: 4.125rem;
+        padding: 0.5rem 0 0.5rem 0;
+        border: none;
+        background-color: transparent;
+    }
+
+    & .accordion-header button {
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        box-shadow: none;
+        font-weight: 700;
+        font-size: 1.25rem;
+        line-height: 1.625rem;
+        letter-spacing: -0.4px;
+        text-align: left;
+    }
+
+    & .accordion-header button:after {
+        display: none;
+    }
 }
 
-.accordion-1 .h2-heading {
-    margin-bottom: 1rem;
-    text-align: center;
-    padding-top: 6px;
-    font-weight: 600px;
+.fade-enter-active {
+    transition: all 0.5s ease-out;
 }
 
-.accordion-1 .p-heading {
-    margin-bottom: 4rem;
-    text-align: center;
+.fade-leave-active {
+    transition: all 0.5s ease-out;
 }
 
-.accordion-1 .accordion {
-    margin-bottom: 5rem;
-}
-
-.accordion-1 .accordion-item {
-    margin-bottom: 2.5rem;
-    border: none;
-    border-radius: 0;
-    background-color: transparent;
-}
-
-.accordion-1 .accordion-item:last-of-type {
-    margin-bottom: 0;
-}
-
-.accordion-1 .accordion-icon {
-    position: absolute;
-    width: 44px;
-    height: 44px;
-    border-radius: 4px;
-    text-align: center;
-    background-color: #14be9f;
-}
-
-.accordion-1 .accordion-icon.blue {
-    background-color: #1d79fb;
-}
-
-.accordion-1 .accordion-icon.purple {
-    background-color: #dc63ff;
-}
-
-.accordion-1 .accordion-icon.orange {
-    background-color: #ff6c02;
-}
-
-.accordion-1 .accordion-icon .fas {
-    font-size: 1.25rem;
-    line-height: 44px;
-}
-
-.accordion-1 .accordion-header {
-    margin-left: 4.125rem;
-    padding: 0.5rem 0 0.5rem 0;
-    border: none;
-    background-color: transparent;
-}
-
-.accordion-1 .accordion-header button {
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    box-shadow: none;
-    font-weight: 700;
-    font-size: 1.25rem;
-    line-height: 1.625rem;
-    letter-spacing: -0.4px;
-    text-align: left;
-}
-
-.accordion-1 .accordion-header button:after {
-    display: none;
-}
-
-.accordion-1 .accordion-body {
-    margin-left: 4.125rem;
-    padding: 0.375rem 0 0 0;
-}
-
-.accordion-enter-active, .accordion-leave-active {
-    transition: all 3s ease;
-}
-.accordion-enter, .accordion-leave-to {
-    max-height: 0;
+.fade-enter-from,
+.fade-leave-to {
+    transform: translateY(-100%);
     opacity: 0;
 }
 </style>

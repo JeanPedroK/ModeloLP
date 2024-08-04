@@ -9,81 +9,16 @@
       <div class="row">
         <div class="col-lg-12 d-flex card-main">
 
-          <div class="card col align-items-center">
-            <div class="card-icon">
-              <span class="fas fa-headphones-alt"></span>
+          <div class="card col-lg-4 align-items-center" v-for="(item, index) in services" :key="index">
+            <div :class="`card-icon ${item.iconColor}`">
+              <span :class="item.iconService"></span>
             </div>
             <div class="card-body">
-              <h5 class="card-title">Análise de produtos</h5>
-              <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra. Nullam pharetra ante at nunc
-                elementum</p>
+              <h5 class="card-title">{{ item.name }}</h5>
+              <p>{{ item.content }}</p>
               <a class="read-more no-line" href="#">Learn more <span class="fas fa-long-arrow-alt-right"></span></a>
             </div>
           </div>
-
-          <div class="card col align-items-center">
-            <div class="card-icon red">
-              <span class="far fa-clipboard"></span>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Oportunidades</h5>
-              <p>Vulputate nibh feugiat. Morbi pellent diam nec libero lacinia, sed ultrices velit scelerisque. Nunc
-                placerat justo sem</p>
-              <a class="read-more no-line" href="#">Learn more <span class="fas fa-long-arrow-alt-right"></span></a>
-            </div>
-          </div>
-
-          <div class="card col align-items-center">
-            <div class="card-icon green">
-              <span class="far fa-comments"></span>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Comunicação</h5>
-              <p>Ety suscipit metus sollicitudin euqu isq imperdiet nibh nec magna tincidunt, nec pala vehicula neque
-                sodales verum</p>
-              <a class="read-more no-line" href="#">Learn more <span class="fas fa-long-arrow-alt-right"></span></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-12 d-flex card-main">
-
-          <div class="card col align-items-center">
-            <div class="card-icon">
-              <span class="fas fa-headphones-alt"></span>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Análise de produtos</h5>
-              <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra. Nullam pharetra ante at nunc
-                elementum</p>
-              <a class="read-more no-line" href="#">Learn more <span class="fas fa-long-arrow-alt-right"></span></a>
-            </div>
-          </div>
-
-          <div class="card col align-items-center">
-            <div class="card-icon red">
-              <span class="far fa-clipboard"></span>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Oportunidades</h5>
-              <p>Vulputate nibh feugiat. Morbi pellent diam nec libero lacinia, sed ultrices velit scelerisque. Nunc
-                placerat justo sem</p>
-              <a class="read-more no-line" href="#">Learn more <span class="fas fa-long-arrow-alt-right"></span></a>
-            </div>
-          </div>
-
-          <div class="card col align-items-center">
-            <div class="card-icon green">
-              <span class="far fa-comments"></span>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Comunicação</h5>
-              <p>Ety suscipit metus sollicitudin euqu isq imperdiet nibh nec magna tincidunt, nec pala vehicula neque
-                sodales verum</p>
-              <a class="read-more no-line" href="#">Learn more <span class="fas fa-long-arrow-alt-right"></span></a>
-            </div>
-          </div>
-
-
 
         </div>
       </div>
@@ -91,8 +26,25 @@
   </div>
 </template>
 
-<style scoped lang="scss">
+<script>
+export default {
+  data() {
+    return {
+      services: [
+        { name: 'Análise de produtos', iconService: 'fas fa-headphones-alt', iconColor: 'green', content: 'Vulputate nibh feugiat. Morbi pellent diam nec libero lacinia, sed ultrices velit scelerisque. Nuncplacerat justo sem' },
+        { name: 'Oportunidades', iconService: 'far fa-clipboard', iconColor: 'red', content: 'Vulputate nibh feugiat. Morbi pellent diam nec libero lacinia, sed ultrices velit scelerisque. Nuncplacerat justo sem' },
+        { name: 'Comunicação', iconService: 'far fa-comments', iconColor: 'blue', content: 'Vulputate nibh feugiat. Morbi pellent diam nec libero lacinia, sed ultrices velit scelerisque. Nuncplacerat justo sem' },
+        { name: 'Oportunidades', iconService: 'far fa-comments', iconColor: 'green', content: 'Vulputate nibh feugiat. Morbi pellent diam nec libero lacinia, sed ultrices velit scelerisque. Nuncplacerat justo sem' },
+        { name: 'Comunicação', iconService: 'fas fa-headphones-alt', iconColor: 'red', content: 'Vulputate nibh feugiat. Morbi pellent diam nec libero lacinia, sed ultrices velit scelerisque. Nuncplacerat justo sem' },
+        { name: 'Análise de produtos', iconService: 'far fa-clipboard', iconColor: 'blue', content: 'Vulputate nibh feugiat. Morbi pellent diam nec libero lacinia, sed ultrices velit scelerisque. Nuncplacerat justo sem' }
+      ]
+    }
+  }
+}
 
+</script>
+
+<style scoped lang="scss">
 .container {
   padding-top: 3rem;
 }
@@ -115,6 +67,7 @@
     background-color: transparent;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     padding: 25px;
+    max-width: 400px;
   }
 
   & .card-icon {
@@ -158,7 +111,7 @@
 
   & .card-main {
     gap: 20px;
-    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
@@ -182,6 +135,10 @@
   background-color: #e0f4ea;
 }
 
+.cards-1 .card-icon.blue {
+  background-color: #282f96de;
+}
+
 .cards-1 .card-icon.green .fas,
 .cards-1 .card-icon.green .far {
   color: #16c66d;
@@ -195,6 +152,7 @@
     & .card-main {
       gap: 5px;
       flex-direction: column;
+      align-items: center;
     }
 
     & .card {

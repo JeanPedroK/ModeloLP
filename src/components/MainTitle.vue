@@ -16,8 +16,6 @@ defineProps({
             <h1 class="h1-large">{{ msg }}</h1>
             <p class="p-large"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim, neque ut ultrices
               sollicitudin Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim, neque ut ultrices
-              sollicitudin Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim, neque ut ultrices
-              sollicitudin Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim, neque ut ultrices
               sollicitudin</p>
             <!-- <a class="btn-solid-lg" href="#services">Serviços</a> -->
           </div>
@@ -25,6 +23,29 @@ defineProps({
         <div class="col-lg-6 col-xl-7">
           <div class="image-container">
             <img class="img-fluid" src="/assets/images/header-image.png" alt="alternative" />
+          </div>
+        </div>
+      </div>
+      <div class="row" style="padding-top: 24rem;">
+        <div class="basic-2">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 col-xl-5">
+                <div class="text-container">
+                  <div class="section-title">ABOUT US</div>
+                  <h2>We have ten years experience in marketing</h2>
+                  <p>Etiam tempus condimentum congue. In sit amet nisi eget massa condimentum lobortis eget ac eros. In
+                    hac habitasse platea dictumst. Aenean molestie mauris eget sapien sagittis, a bibendum magna
+                    tincidunt
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-xl-7">
+                <div class="image-container">
+                  <img class="img-fluid" src="/assets/images/details-2.png" alt="alternative" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -39,7 +60,7 @@ defineProps({
   text-align: center;
   overflow: hidden;
   padding-top: 20.25rem;
-  padding-bottom: 20.3%;
+  // padding-bottom: 20.3%;
 
   & .image-container {
     position: relative;
@@ -71,6 +92,25 @@ defineProps({
 
   & .image-container {
     margin-top: 5rem;
+  }
+}
+
+.basic-2 {
+  padding-top: 4.5rem;
+  padding-bottom: 9.5rem;
+  background: url('/assets/images/details-2-background.jpg') center center no-repeat;
+  background-size: cover;
+
+  & .text-container {
+    margin-bottom: 4rem;
+  }
+
+  & h2 {
+    margin-bottom: 1.75rem;
+  }
+
+  & p {
+    margin-bottom: 2rem;
   }
 }
 

@@ -10,18 +10,12 @@
 
             <div class="navbar-collapse offcanvas-collapse" v-show="toggleMenu" id="navbarsExampleDefault">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#homePage">Home</a>
+
+                    <li class="nav-item" v-for="(menuOptions, index) in menuOptions" :key="index">
+                        <a class="nav-link" :class="{ filled: ativa === menuOptions.name.slice(1) }" aria-current="page"
+                            :href=menuOptions.name>{{ menuOptions.title }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Serviços</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#prices">Pacotes</a>
-                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
                             aria-expanded="false" @click="toggleDropdown" @mouseover="handleMouseOver">Sobre</a>
@@ -48,7 +42,16 @@
 <script>
 
 export default {
-    name: 'App',
+    props: {
+        menuOptions: {
+            type: Array,
+            required: true
+        },
+        ativa: {
+            type: String,
+            default: false
+        }
+    },
     data() {
         return {
             toggleMenu: false,
@@ -128,8 +131,7 @@ export default {
         text-align: center;
 
         &:hover {
-            background-color: hsla(130, 100%, 37%, 0.2);
-            color: #fcfafb;
+            color: hsla(130, 100%, 37%, 0.705);
         }
 
         &:focus {
@@ -175,5 +177,9 @@ export default {
     100% {
         opacity: 1;
     }
+}
+
+.filled {
+    color: hsla(130, 100%, 37%, 0.705) !important;
 }
 </style>

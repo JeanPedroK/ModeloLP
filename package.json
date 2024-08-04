@@ -10,6 +10,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "swiper": "^11.1.9",
     "vue": "^3.4.29"
   },
   "devDependencies": {
