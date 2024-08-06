@@ -1,10 +1,15 @@
 <script setup>
 defineProps({
-  msg: {
+  TituloPrincipal: {
     type: String,
     required: true
   }
 })
+
+var textoTitulo = { content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit Ut dignissim, neque ut ultrices sollicitudin Lorem ipsum dolor sit ametconsectetur adipiscing elit. Ut dignissim, neque ut ultrices sollicitudin' }
+
+var textoAbout = { titulo: 'We have ten years experience in marketing', content: 'Etiam tempus condimentum congue. In sit amet nisi eget massa condimentum lobortis eget ac eros. In hac habitasse platea dictumst. Aenean molestie mauris eget sapien sagittis, a bibendum magna tincidunt' }
+
 </script>
 
 <template>
@@ -13,11 +18,8 @@ defineProps({
       <div class="row">
         <div class="col-lg-6 col-xl-5">
           <div class="text-container">
-            <h1 class="h1-large">{{ msg }}</h1>
-            <p class="p-large"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim, neque ut ultrices
-              sollicitudin Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim, neque ut ultrices
-              sollicitudin</p>
-            <!-- <a class="btn-solid-lg" href="#services">Serviços</a> -->
+            <h1 class="h1-large">{{ TituloPrincipal }}</h1>
+            <p class="p-large"> {{ textoTitulo.content }}</p>
           </div>
         </div>
         <div class="col-lg-6 col-xl-7">
@@ -33,10 +35,8 @@ defineProps({
               <div class="col-lg-6 col-xl-5">
                 <div class="text-container">
                   <div class="section-title">ABOUT US</div>
-                  <h2>We have ten years experience in marketing</h2>
-                  <p>Etiam tempus condimentum congue. In sit amet nisi eget massa condimentum lobortis eget ac eros. In
-                    hac habitasse platea dictumst. Aenean molestie mauris eget sapien sagittis, a bibendum magna
-                    tincidunt
+                  <h2>{{ textoAbout.titulo }}</h2>
+                  <p>{{ textoAbout.content }}
                   </p>
                 </div>
               </div>
@@ -100,6 +100,11 @@ defineProps({
   padding-bottom: 9.5rem;
   background: url('/assets/images/details-2-background.jpg') center center no-repeat;
   background-size: cover;
+
+  & .section-title {
+    color: hsla(130, 100%, 37%, 0.705);
+    font-weight: bold;
+  }
 
   & .text-container {
     margin-bottom: 4rem;

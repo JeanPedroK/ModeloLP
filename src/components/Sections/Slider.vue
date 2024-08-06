@@ -3,13 +3,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h4>Trusted by over <span style="color: hsla(130, 100%, 37%, 0.705);font-weight: bold;">5000</span> customers Worldwide!</h4>
+                    <h4>Com a confiança de mais de <span
+                            style="color: hsla(130, 100%, 37%, 0.705);font-weight: bold;">5000</span> clientes no mundo
+                        todo!</h4>
                     <hr class="section-divider" />
-
                     <div class="slider-container">
                         <div class="swiper-container image-slider">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide" v-for="(item, index) in logos" :key="index" >
+                                <div class="swiper-slide" v-for="(item, index) in logos" :key="index">
                                     <img class="img-fluid" :src="item.urlImg" alt="alternative" />
                                 </div>
                             </div>
@@ -27,12 +28,12 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 var logos = [
-    { urlImg:'/assets/images/customer-logo-1.png'},
-    { urlImg:'/assets/images/customer-logo-2.png'},
-    { urlImg:'/assets/images/customer-logo-3.png'},
-    { urlImg:'/assets/images/customer-logo-4.png'},
-    { urlImg:'/assets/images/customer-logo-5.png'},
-    { urlImg:'/assets/images/customer-logo-6.png'},
+    { urlImg: '/assets/images/customer-logo-1.png' },
+    { urlImg: '/assets/images/customer-logo-2.png' },
+    { urlImg: '/assets/images/customer-logo-3.png' },
+    { urlImg: '/assets/images/customer-logo-4.png' },
+    { urlImg: '/assets/images/customer-logo-5.png' },
+    { urlImg: '/assets/images/customer-logo-6.png' },
 
 ]
 

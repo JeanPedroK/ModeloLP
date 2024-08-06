@@ -4,16 +4,17 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <ul class="list-unstyled li-space-lg p-small">
-                        <li><a href="#">Article Details</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a class="text-muted" href="#">Article Details</a></li>
+                        <li><a class="text-muted" href="#">Terms & Conditions</a></li>
+                        <li><a class="text-muted" href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-12 col-sm-12">
-                    <p class="p-small statement">Copyright © <a href="#"></a></p>
+                    <p class="p-small statement">Copyright © <a class="nameCp" href="https://github.com/JeanPedroK"
+                            target="_blank">JP</a></p>
                 </div>
                 <div class="col-lg-3 col-md-12 col-sm-12">
-                    <p class="p-small statement">Distributed by <a href="#" target="_blank">
+                    <p class="p-small statement">Distributed by <a href="#" class="nameCp" target="_blank">Name
                         </a></p>
                 </div>
             </div>
@@ -23,17 +24,47 @@
 
 <style lang="scss" scoped>
 .copyright {
-    padding-top: 1.5rem;
+    padding-top: 1rem;
     border-top: 1px solid #d0dae2;
-    text-align: center;
+    text-align: left;
+
+    & a {
+        text-decoration: none;
+    }
+
+    & .list-unstyled {
+        opacity: 0.7;
+
+        & li {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+    }
+
+    & .statement {
+        opacity: 0.7;
+        text-align: right;
+
+    }
+
+    & .nameCp {
+        color: rgba(0, 189, 31, 0.706);
+        cursor: pointer;
+        font-weight: bold;
+    }
 }
 
-.copyright a {
-    text-decoration: none;
-}
+@media screen and (max-width: 500px) {
+    .copyright {
+        & .list-unstyled {
+            text-align: center;
+        }
 
-.copyright .list-unstyled,
-.copyright .statement {
-    opacity: 0.7;
+        & .statement {
+            text-align: center;
+
+        }
+
+    }
 }
 </style>

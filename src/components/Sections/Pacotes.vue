@@ -4,142 +4,47 @@
             <div class="row">
                 <div class="col-lg-12 d-flex card-main">
 
-                    <div class="card col align-items-center">
+                    <div class="card col align-items-center" v-for="(item, index) in pacotes" :key="index">
                         <div class="card-icon">
-                            <span class="fas fa-solid fa-camera-retro"></span>
+                            <span :class="item.iconPacote + item.iconColor"></span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Pacote 01</h5>
+                            <h5 class="card-title">{{ item.tituloPacote }}</h5>
                             <span>
-                                <i class="fas fa-regular fa-star iconYellow"></i>
-                                <i class="fas fa-regular fa-star iconYellow"></i>
-                                <i class="fas fa-regular fa-star iconYellow"></i>
-                                <i class="far fa-solid fa-star"></i>
-                                <i class="far fa-solid fa-star"></i>
+                                <i v-for="i in item.estrelas" :key="i" class="fas fa-star iconYellow"></i>
+                                <i v-for="i in (5 - item.estrelas)" :key="i" class="far fa-star"></i>
                             </span>
-                            <div aria-hidden="true">(8 avaliações)</div>
+                            <div aria-hidden="true">{{ item.avaliacoes }}</div>
                             <div class="d-flex">
                                 <ul class="d-flex flex-row" style="gap:5px;">
-                                    <li class="text-muted">Windows®</li>
-                                    <li class="text-muted">macOS®</li>
-                                    <li class="text-muted">Android™</li>
-                                    <li class="text-muted">iOS®</li>
+                                    <li class="text-muted">{{ item.compativeis }}</li>
                                 </ul>
                             </div>
                             <ul class="d-flex">
                                 <li class="d-flex">
                                     <i class="fas fa-solid fa-check icon-check"></i>
-                                    <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.</p>
+                                    <p>{{ item.info1 }}</p>
                                 </li>
                                 <li class="d-flex">
                                     <i class="fas fa-solid fa-check icon-check"></i>
-                                    <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.</p>
+                                    <p>{{ item.info2 }}</p>
+
                                 </li>
                                 <li class="d-flex">
                                     <i class="fas fa-solid fa-check icon-check"></i>
-                                    <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.</p>
+                                    <p>{{ item.info3 }}</p>
+
                                 </li>
                                 <li class="d-flex">
                                     <i class="fas fa-solid fa-check icon-check"></i>
-                                    <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.</p>
+                                    <p>{{ item.info4 }}</p>
+
                                 </li>
                             </ul>
 
                         </div>
                         <button class="buyButton btn btn-success" type="button">
-                            <a class="read-more no-line" type="button" href="#">Subcribe NOW <span
-                                    class="fas fa-solid fa-pen-nib"></span></a>
-                        </button>
-                    </div>
-                    <div class="card col align-items-center">
-                        <div class="card-icon red">
-                            <span class="fas fa-cloud"></span>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Pacote 02</h5>
-                            <span>
-                                <i class="fas fa-regular fa-star iconYellow"></i>
-                                <i class="fas fa-regular fa-star iconYellow"></i>
-                                <i class="fas fa-regular fa-star iconYellow"></i>
-                                <i class="fas fa-regular fa-star iconYellow"></i>
-                                <i class="far fa-solid fa-star"></i>
-                            </span>
-                            <div aria-hidden="true">(868 avaliações)</div>
-                            <div class="d-flex">
-                                <ul class="d-flex flex-row" style="gap:5px;">
-                                    <li class="text-muted">Windows®</li>
-                                    <li class="text-muted">macOS®</li>
-                                    <li class="text-muted">Android™</li>
-                                    <li class="text-muted">iOS®</li>
-                                </ul>
-                            </div>
-                            <ul class="d-flex">
-                                <li class="d-flex">
-                                    <i class="fas fa-solid fa-check icon-check"></i>
-                                    <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.</p>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-solid fa-check icon-check"></i>
-                                    <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.</p>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-solid fa-check icon-check"></i>
-                                    <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.</p>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-solid fa-check icon-check"></i>
-                                    <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <button class="buyButton btn btn-success" type="button">
-                            <a class="read-more no-line" type="button" href="#">Subcribe NOW <span
-                                    class="fas fa-solid fa-pen-nib"></span></a>
-                        </button>
-                    </div>
-
-                    <div class="card col align-items-center">
-                        <div class="card-icon green">
-                            <span class="fas fa-gift"></span>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Pacote 03</h5>
-                            <span><i class="fas fa-regular fa-star iconYellow"></i>
-                                <i class="fas fa-regular fa-star iconYellow"></i>
-                                <i class="fas fa-regular fa-star iconYellow"></i>
-                                <i class="fas fa-regular fa-star iconYellow"></i>
-                                <i class="fas fa-regular fa-star iconYellow"></i>
-                            </span>
-                            <div aria-hidden="true">(118 avaliações)</div>
-                            <div class="d-flex">
-                                <ul class="d-flex flex-row" style="gap:5px;">
-                                    <li class="text-muted">Windows®</li>
-                                    <li class="text-muted">macOS®</li>
-                                    <li class="text-muted">Android™</li>
-                                    <li class="text-muted">iOS®</li>
-                                </ul>
-                            </div>
-                            <ul class="d-flex">
-                                <li class="d-flex">
-                                    <i class="fas fa-solid fa-check icon-check"></i>
-                                    <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.</p>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-solid fa-check icon-check"></i>
-                                    <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.</p>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-solid fa-check icon-check"></i>
-                                    <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.</p>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-solid fa-check icon-check"></i>
-                                    <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <button class="buyButton btn btn-success" type="button">
-                            <a class="read-more no-line" type="button" href="#">Subcribe NOW <span
+                            <a class="read-more no-line" type="button" href="#">Assinar<span
                                     class="fas fa-solid fa-pen-nib"></span></a>
                         </button>
                     </div>
@@ -149,6 +54,22 @@
     </div>
 
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            pacotes: [
+                { tituloPacote: 'Pacote Básico', iconPacote: 'fas fa-fish', iconColor: ' green', info1: 'Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.', info2: 'Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.', info3: 'Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.', info4: 'Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.', compativeis: 'Windows® macOS® Android™ iOS®', avaliacoes: '(8 avaliações)', estrelas: 3 },
+                { tituloPacote: 'Pacote Intermediário', iconPacote: 'fas fa-horse', iconColor: ' blue', info1: 'Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.', info2: 'Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.', info3: 'Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.', info4: 'Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.', compativeis: 'Windows® macOS® Android™ iOS®', avaliacoes: '(868 avaliações)', estrelas: 4 },
+                { tituloPacote: 'Pacote Avançado', iconPacote: 'fas fa-dragon', iconColor: ' red', info1: 'Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.', info2: 'Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.', info3: 'Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.', info4: 'Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra.', compativeis: 'Windows® macOS® Android™ iOS®', avaliacoes: '(118 avaliações)', estrelas: 5 },
+            ]
+        }
+    }
+}
+
+
+</script>
 <style scoped lang="scss">
 ul {
     list-style-type: none;
@@ -226,8 +147,9 @@ ul {
 
     & .read-more {
         color: white;
-        font-weight: 600;
-        font-size: 0.875rem;
+        font-weight: 700;
+        font-weight: bold;
+        font-size: 1.2rem;
         line-height: 1.5rem;
         text-decoration: none;
 
@@ -246,31 +168,24 @@ ul {
     }
 }
 
-.cards-1 .card-icon .fas,
-.cards-1 .card-icon .far {
-    color: #0092ff;
-    font-size: 2rem;
-    line-height: 66px;
+
+.red {
+    color: #ef473d !important;
 }
 
-.cards-1 .card-icon.red {
-    background-color: #fbe4e4;
-}
-
-.cards-1 .card-icon.red .fas,
-.cards-1 .card-icon.red .far {
-    color: #ef473d;
-}
-
-.cards-1 .card-icon.green {
-    background-color: #e0f4ea;
-}
-
-.cards-1 .card-icon.green .fas,
-.cards-1 .card-icon.green .far {
+.green {
     color: #16c66d;
 }
 
+.blue {
+    color: #0092ff;
+}
+
+.cards-1 .card-icon .fas,
+.cards-1 .card-icon .far {
+    font-size: 2rem;
+    line-height: 66px;
+}
 
 @media screen and (max-width: 500px) {
     .container {

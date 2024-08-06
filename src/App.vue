@@ -8,11 +8,13 @@ import Pacotes from '../src/components/Sections/Pacotes.vue'
 import Testimonials from '../src/components/Sections/Testimonial.vue'
 import Slider from '../src/components/Sections/Slider.vue'
 import MediaSocial from './components/Sections/MediaSocial.vue';
+import Submit from './components/Sections/Submit.vue';
+import Footer from './components/Sections/Footer.vue';
 
-var menusNav = [{ name: '#homePage', title:"Home", status:'ativo', submenu: false },
-{ name: '#services', title:"Serviços", status:'ativo', submenu: false },
-{ name: '#features', title:"Features", status:'ativo', submenu: false },
-{ name: '#prices', title:"Pacotes", status:'ativo', submenu: false },
+var menusNav = [{ name: '#homePage', title: "Home", status: 'ativo', submenu: false },
+{ name: '#services', title: "Serviços", status: 'ativo', submenu: false },
+{ name: '#features', title: "Features", status: 'ativo', submenu: false },
+{ name: '#prices', title: "Pacotes", status: 'ativo', submenu: false },
 ]
 
 var activeSection = ref('homePage');
@@ -46,14 +48,16 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <NavBar :menuOptions= "menusNav" :ativa="activeSection"  />
-  <MainTitle msg="Modelo Landing Page" id="homePage" />
+  <NavBar :menuOptions="menusNav" :ativa="activeSection" />
+  <MainTitle TituloPrincipal="Modelo Landing Page" id="homePage" />
   <Servicos id="services" />
   <Features id="features" />
   <Pacotes id="prices" />
   <Testimonials />
   <Slider />
+  <Submit />
   <MediaSocial />
+  <Footer />
 </template>
 
 

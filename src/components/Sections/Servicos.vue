@@ -16,7 +16,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ item.name }}</h5>
               <p>{{ item.content }}</p>
-              <a class="read-more no-line" href="#">Learn more <span class="fas fa-long-arrow-alt-right"></span></a>
+              <a class="read-more no-line" href="#">Ver mais <span class="fas fa-long-arrow-alt-right"></span></a>
             </div>
           </div>
 

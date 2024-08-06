@@ -4,8 +4,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <h2 class="h2-heading">Features</h2>
-                    <p class="p-heading">Suspendisse vitae enim arcu. Aliquam convallis risus a felis blandit, at mollis
-                        nisi bibendum. Aliquam nec purus at ex blandit posuere nec a odio. Proin lacinia dolor justo</p>
+                    <p class="p-heading">{{ textoSecundario }}</p>
                 </div>
             </div>
             <div class="row">
@@ -55,7 +54,8 @@ export default {
                 { title: 'Oportunidades', iconClass: 'fas fa-microphone', iconColor: 'blue', content: 'Mauris ornare libero et pharetra hendrerit. Cura elementum lectus quis tellus pretium, vitae lobortis dui sagittis aliquam et enim vel semon anticus' },
                 { title: 'Campanha', iconClass: 'fas fa-video', iconColor: 'purple', content: 'Mauris ornare libero et pharetra hendrerit. Cura elementum lectus quis tellus pretium, vitae lobortis dui sagittis aliquam et enim vel semon anticus' },
                 { title: 'Ajustes', iconClass: 'fas fa-tools', iconColor: 'orange', content: 'Mauris ornare libero et pharetra hendrerit. Cura elementum lectus quis tellus pretium, vitae lobortis dui sagittis aliquam et enim vel semon anticus' }
-            ]
+            ],
+            textoSecundario: 'Suspendisse vitae enim arcu. Aliquam convallis risus a felis blandit, at mollis nisi bibendum. Aliquam nec purus at ex blandit posuere nec a odio. Proin lacinia dolor justo'
         };
     },
     methods: {

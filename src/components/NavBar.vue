@@ -72,7 +72,7 @@ export default {
         handleMouseLeave() {
             this.timeout = setTimeout(() => {
                 this.isOpen = false;
-            }, 200); // Delay to allow click events to register
+            }, 200);
         }
     }
 }
